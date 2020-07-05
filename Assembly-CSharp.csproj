@@ -62,11 +62,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\JunkoChan\Scripts\JunkochanCamControl.cs" />
+    <Compile Include="Assets\JunkoChan\Scripts\JunkochanControl.cs" />
+    <Compile Include="Assets\Prefabs\fantasySpider\FSP_ContinuousRotation.cs" />
     <Compile Include="Assets\Scripts\Crucials\CrucialController.cs" />
+    <Compile Include="Assets\Scripts\GameMechanisms\ScoreTrack.cs" />
+    <Compile Include="Assets\Scripts\GameMechanisms\UIScore.cs" />
     <Compile Include="Assets\Scripts\Input\CameraController.cs" />
     <Compile Include="Assets\Scripts\Input\FlashLightController.cs" />
     <Compile Include="Assets\Scripts\Input\MovementController.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\ClockScript.cs" />
+    <Compile Include="Assets\Scripts\LevelScripts\SpiderReveal.cs" />
+    <Compile Include="Assets\Scripts\LevelScripts\SpiderScript.cs" />
+    <None Include="Assets\JunkoChan\Readme (English and Japanese).txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Maciej/Desktop/Dad, I'm scared/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

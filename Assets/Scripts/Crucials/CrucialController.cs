@@ -4,42 +4,29 @@ using UnityEngine;
 
 public class CrucialController : MonoBehaviour
 {
-    [SerializeField] Material baseMaterial;
-    [SerializeField] Material HighLightMaterial;
     [SerializeField] Renderer BallRenderer;
-    private CrucialController LastCrucial;
+    public bool timeToDie = false;
+    public float minimumDistance;
+    public Animator anim;
+
+    private void Start()
+    {
+        anim = gameObject.GetComponent<Animator>();
+    }
 
     private void Update()
     {
 
-        var ray = FlashLightController.ViewRay;
-        RaycastHit hit;
 
-        if (LastCrucial != null)
-        { 
-            LastCrucial.BackToDefault();
-        }
-
-
-        if(Physics.Raycast(ray, out hit))
+        if (timeToDie)
         {
-            var selection = hit.transform;
-            var selectionTypeCheck = selection.GetComponent<CrucialController>();
-            if (selectionTypeCheck != null && Input.GetMouseButton(0))
-            {
-                selectionTypeCheck.Highlight();
-                LastCrucial = selectionTypeCheck;
-            }
+            OnDestruction();
         }
     }
-
-    public void Highlight()
+    
+    private void OnDestruction()
     {
-      
-    }
-
-    public void BackToDefault()
-    {
-        BallRenderer.material = baseMaterial;
+        ScoreTrack.PointsCollected++;
+        Destroy(gameObject);
     }
 }
