@@ -15,33 +15,51 @@ public class FlashLightController : MonoBehaviour
     }
     private CrucialController lastCrucial = null;
     public Animator CursorAnim;
+    private AudioSource audioSrc;
+
+    private void Start()
+    {
+        spotlight.enabled = false;
+        audioSrc = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
-        spotlight.enabled = Input.GetMouseButton(0);
+       
+
+        if (SpiderScript.canMove)
+        {
+            if(spotlight.enabled == false && Input.GetMouseButton(0))
+            {
+                audioSrc.Play();
+            }
+            spotlight.enabled = Input.GetMouseButton(0);
+        }
 
 
+        if(DialogueManager.dialogueFinished == true) { 
         var ray = ViewRay;
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
-        {
-            var selection = hit.transform;
-            CrucialController selectedCrucial = selection.GetComponent<CrucialController>();
+            if (Physics.Raycast(ray, out hit))
+            {
+                var selection = hit.transform;
+                CrucialController selectedCrucial = selection.GetComponent<CrucialController>();
 
 
-            if (selectedCrucial != null && Input.GetMouseButton(0) && Vector3.Distance(gameObject.transform.position, selection.transform.position) < selectedCrucial.minimumDistance)
-            {
-                CursorAnim.SetTrigger("Start");
-                selectedCrucial.anim.SetTrigger("Start");
-                lastCrucial = selectedCrucial;
-            }
-            else
-            {
-                CursorAnim.SetTrigger("Stop");
-                if(lastCrucial!= null && GameObject.Find(lastCrucial.name) != null)
+                if (selectedCrucial != null && Input.GetMouseButton(0) && Vector3.Distance(gameObject.transform.position, selection.transform.position) < selectedCrucial.minimumDistance)
                 {
-                    lastCrucial.anim.SetTrigger("Stop");
+                    CursorAnim.SetTrigger("Start");
+                    selectedCrucial.anim.SetTrigger("Start");
+                    lastCrucial = selectedCrucial;
+                }
+                else
+                {
+                    CursorAnim.SetTrigger("Stop");
+                    if (lastCrucial != null && GameObject.Find(lastCrucial.name) != null)
+                    {
+                        lastCrucial.anim.SetTrigger("Stop");
+                    }
                 }
             }
         }

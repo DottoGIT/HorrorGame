@@ -66,7 +66,11 @@
     <Compile Include="Assets\JunkoChan\Scripts\JunkochanControl.cs" />
     <Compile Include="Assets\Prefabs\fantasySpider\FSP_ContinuousRotation.cs" />
     <Compile Include="Assets\Scripts\Crucials\CrucialController.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueScripts.cs" />
+    <Compile Include="Assets\Scripts\GameMechanisms\QuitGame.cs" />
     <Compile Include="Assets\Scripts\GameMechanisms\ScoreTrack.cs" />
+    <Compile Include="Assets\Scripts\GameMechanisms\StartScript.cs" />
     <Compile Include="Assets\Scripts\GameMechanisms\UIScore.cs" />
     <Compile Include="Assets\Scripts\Input\CameraController.cs" />
     <Compile Include="Assets\Scripts\Input\FlashLightController.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="Assets\Scripts\LevelScripts\ClockScript.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\SpiderReveal.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\SpiderScript.cs" />
+    <Compile Include="Assets\Sounds\SoundScripts\Footsteps.cs" />
     <None Include="Assets\JunkoChan\Readme (English and Japanese).txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Maciej/Desktop/Dad, I'm scared/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
